@@ -1,0 +1,48 @@
+frontend:
+  labels:
+    app: frontend
+
+  deploy:
+    name: frontend
+    replicas: 5
+    containers:
+      name: frontend
+      imagePullPolicy: IfNotPresent
+      image: deanosaurx/frontend
+      tag: 1.0.26
+      ports:
+        containerPort: 3001
+
+  service:
+    name: frontend-service
+    type: ClusterIP
+    labels:
+      app: frontend
+    ports:
+      port: 80
+      targetPort: 3001
+
+backend:
+  labels:
+    app: backend
+
+  deploy:
+    name: backend
+    replicas: 5
+    containers:
+      name: backend
+      imagePullPolicy: IfNotPresent
+      image: deanosaurx/backend
+      tag: 1.0.26
+      ports:
+        containerPort: 8000
+
+  service:
+    name: backend-service
+    type: ClusterIP
+    labels:
+      app: backend
+    ports:
+      name: port-backend
+      port: 80
+      targetPort: 3001

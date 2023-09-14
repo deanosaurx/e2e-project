@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  tls:
+    - hosts:
+        - cicd.deanosaur.com
+      secretName: arn:aws:acm:eu-west-1:519502532841:certificate/dbd70009-97a0-499f-8fa9-bac2cd15dffb
+  rules:
+    - host: cicd.deanosaur.com
+      http:
+        paths:
+          - path: /todos
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 80
+          - path: /todos/:id
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80
