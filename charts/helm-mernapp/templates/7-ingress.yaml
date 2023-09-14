@@ -12,7 +12,7 @@ spec:
   tls:
     - hosts:
         - cicd.deanosaur.com
-      secretName: arn:aws:acm:eu-west-1:519502532841:certificate/1b7012ef-d77e-4754-9de5-3c135eaa29b0
+      secretName: aws-acm-secret
   rules:
     - host: cicd.deanosaur.com
       http:
