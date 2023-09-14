@@ -8,7 +8,7 @@ spec:
   tls:
     - hosts:
         - cicd.deanosaur.com
-      secretName: arn:aws:acm:eu-west-1:519502532841:certificate/dbd70009-97a0-499f-8fa9-bac2cd15dffb
+      secretName: arn:aws:acm:eu-west-1:519502532841:certificate/1b7012ef-d77e-4754-9de5-3c135eaa29b0
   rules:
     - host: cicd.deanosaur.com
       http:
