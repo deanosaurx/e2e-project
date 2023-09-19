@@ -9,7 +9,7 @@ frontend:
       name: frontend
       imagePullPolicy: IfNotPresent
       image: deanosaurx/frontend
-      tag: v2
+      tag: v2.0.1
       ports:
         containerPort: 3001
 
