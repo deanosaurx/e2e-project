@@ -1,5 +1,5 @@
 locals {
-  domain = "*.deanosaur.com"
+  domain = "cicd.deanosaur.com"
   name   = "devops-e2e"
   region = "eu-west-1"
 

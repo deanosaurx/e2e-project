@@ -15,7 +15,7 @@ spec:
             region: eu-west-1
         selector:
           dnsZones:
-            - "*.deanosaur.com"
+            - "cicd.deanosaur.com"
       - http01:
           ingress:
             class: nginx
