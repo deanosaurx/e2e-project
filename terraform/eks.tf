@@ -23,6 +23,11 @@ module "eks" {
 
   eks_managed_node_groups = {
     default = {}
+    green = {
+      min_size     = 2
+      max_size     = 10
+      desired_size = 2
+    }
   }
 
   # Adding required DNS Egress rule for Cert-Manager DNS challenge
