@@ -3,3 +3,5 @@ terraform/terraform.*
 terraform/terraform.*
 app/backend/node_modules
 app/frontend/node_modules
+app/frontend/package-lock.json
+app/backend/package-lock.json
