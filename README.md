@@ -1,5 +1,34 @@
-After running terrafrom
+# CI/CD GitOps Projet with Terraform, EKS, Jenkins and ArgoCD.
 
-- Create namespaces
-- Create a secret to request a certificate:
-  kubectl create secret -n todo-app generic aws-acm-secret --from-literal=acmCertArn=arn:aws:acm:eu-west-1:519502532841:certificate/1b7012ef-d77e-4754-9de5-3c135eaa29b0
+![](images/e2e-project.png)
+
+## Stack I'll be using
+
+- [x] **Jenkins**
+- [x] **Snyk**
+- [x] **Docker**
+- [x] **Artifact Scan**
+- [x] **ArgoCD**
+- [x] **EKS**
+- [x] **Prometheus**
+- [x] **Grafana**
+
+## Pre-requisities
+
+- [x] **AWS CLI**
+- [x] **Terraform**
+- [x] **Helm**
+
+Install ArgoCD
+
+```bash
+$ kubectl create namespace argocd
+$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}' # This is optional
+```
+
+Install the cluster issuer
+
+```bash
+$ kubectl apply -f certs/clusterIssuer.yaml
+```
